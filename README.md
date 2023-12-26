@@ -69,8 +69,8 @@ This dataset contains some individual players multiple times due to the collecti
 ```python
 df.info()
 ```
-- At first we remove the first column [Unnamed: 0].    
-- Secondly,we will turn the [draft_round] and [draft_number] features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
+- At first we remove the first column 'Unnamed: 0'.    
+- Secondly,we will turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
 
 
 ## Exploring the Features
