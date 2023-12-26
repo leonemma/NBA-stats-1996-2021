@@ -77,9 +77,7 @@ df.info()
   
 ![Histograms of Numeric Variables](/plots/1plot.png)
 
-```python
-df.info()
-```
+
 ### Correlation Matrix
 
 ![Correlation Matrix](/plots/2plot.png)
