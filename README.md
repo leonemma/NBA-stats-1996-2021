@@ -60,8 +60,6 @@ This dataset contains 22 columns and 12844 observations.
 - ast_pct : Percentage of teammate field goals the player assisted while he was on the floor  
 - season : NBA season
 
-![Distributions]('C:/Users/user/plot.png')
-
 ## Data Cleaning
 This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we will analyze the NBA over the years, and secondly, we will transform the dataset to represent NBA player stats in a way that each player exists in the dataset only once.
 
