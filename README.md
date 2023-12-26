@@ -1,5 +1,5 @@
 
-# NBA Stats 1996-2021 Analysis
+# NBA Stats 1996-2021
 
 ## Authors
 
@@ -60,11 +60,26 @@ This dataset contains 22 columns and 12844 observations.
 - ast_pct : Percentage of teammate field goals the player assisted while he was on the floor  
 - season : NBA season
 
+
+
 ## Data Cleaning
 This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we will analyze the NBA over the years, and secondly, we will transform the dataset to represent NBA player stats in a way that each player exists in the dataset only once.
 
-The dataset does not contain any null values.  
-At first we remove the first column 'Unnamed: 0'.  
-![Plot 1](plots/1plot.png)
- 
- 
+#### The dataset does not contain any null values.  
+```python
+df.info()
+```
+- At first we remove the first column [Unnamed: 0].    
+- Secondly,we will turn the [draft_round] and [draft_number] features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
+
+
+## Exploring the Features
+  
+![Histograms of Numeric Variables](/plots/1plot.png)
+
+```python
+df.info()
+```
+### Correlation Matrix
+
+![Correlation Matrix](/plots/2plot.png)
