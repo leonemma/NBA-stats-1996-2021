@@ -1,5 +1,5 @@
 
-# NBA Stats 1996-2021
+# NBA Stats 1996-2021 Analysis
 
 ## Authors
 
