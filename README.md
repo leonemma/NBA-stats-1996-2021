@@ -162,7 +162,7 @@ Initially, we will analyze the NBA stats over the years
 
 Observing the data, it becomes apparent that three-quarters of the population participate in the NBA for up to 14 seasons, while the remaining one-quarter extends their playing careers beyond the 14-season mark  
 
-#### 1. Total Number of NBA players
+### 1. Total Number of NBA players
 
 ![Count of players by years](/plots/4plot.png)  
 
@@ -172,20 +172,20 @@ Following this, we will delve into key statistics over the course of time.
 ```python 
 df.groupby('season').mean().T
 ```
-#### 2. Trends in Average Points by an NBA player over the years
+### 2. Trends in Average Points by an NBA player over the years
 ![Average Points by Season](/plots/5plot.png)
 We observe a gradual and consistent rise in the average points scored by NBA players over the years.  
 Let's apply the same analysis to rebounds and assists.
 
-#### 3. Average Rebounds and Assists by an NBA player over the years
+### 3. Average Rebounds and Assists by an NBA player over the years
 ![Average Rebounds of NBA player by Season](/plots/6plot.png)  
 ![Average Assists of NBA player by Season](/plots/7plot.png)  
 
-#### 4. Changes in Maximum Points Per Game 
+### 4. Changes in Maximum Points Per Game 
 Next, our attention turns to scoring in the NBA. The subsequent plot shows the Maximum Points per Game by NBA season. While a discernible trend is not immediately apparent, it is noteworthy that in most seasons, the Points-Per-Game (PPG) leader consistently maintains a score of at least 28 points per game.
 ![Maximum PPG by Season](/plots/8plot.png)
 
-#### 5. Best Playmaking Seasons
+### 5. Best Playmaking Seasons
 Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often a player assist his teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
 We identify the top playmakers in the league throughout the years, focusing on those who have participated in at least of the 25% of the NBA games (31 games) within a season, along with their corresponding passing statistics and the season they stood out.
@@ -214,7 +214,7 @@ pass_skills[['player_name','ast_pct','ast','season']].head(13)
 
 The above plot showcases the extraordinary and historic passing season that Russell Westbrook had in 2016, highlighting the profound impact he had on his teammates.  
 
-#### 6. Best Scoring Seasons
+### 6. Best Scoring Seasons
 ```python
 best_scoring_seasons = df.sort_values(by = 'pts', ascending = False).head(15)
 ```
@@ -240,7 +240,9 @@ We focus on the top 15 players with the best season in scoring and will explore 
 |Allen Iverson           | 31.4 |  4.5  | 5.5 | 2001 |     1      |
 |Shai Gilgeous-Alexander | 31.4 |  4.8  | 5.5 | 2022 |     11     |
 
-- The first thing that we notice is that James Harden had two historic back two back seasons in 2018 and 2019 in scoring. 
+- James Harden had two historic back two back seasons in 2018 and 2019 in scoring. 
 - The 1/3 of this list was after the 2019 season.
-- We notice that only two of these players,Allen Iverson and Lebron James were first pick in their draft season.It's really remarkable that Kobe Bryant was 13-th in his draft season and exists in this special list twice.
+- Allen Iverson and Lebron James are the only players in this list that were first pick in their draft season.  
+- Kobe Bryant was 13-th in his draft season and exists in this special list twice.
+- Russel Westbrook averaged a triple double in 2016.
 
