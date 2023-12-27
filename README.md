@@ -71,7 +71,33 @@ df.info()
 ```
 - At first we remove the first column 'Unnamed: 0'.    
 - Secondly,we will turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
+  
+## Key Questions
 
+These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years. 
+
+### 1. Total Number of NBA Players
+- **Question:** What's the total number of NBA players over the years?
+### 2. Trends in Average Points
+- **Question:** Does the average points of NBA players exhibit a trend over the years?
+### 3. Average Rebounds and Assists
+- **Question:** How do the average rebounds and assists of NBA players change over the years?
+### 4. Changes in Maximum Points per Game
+- **Question:** How does the Maximum Points per Game change over the years?
+### 5. Best Playmaking Seasons
+- **Question:** Which NBA players had the best seasons in playmaking in the last 25 years?
+### 6. Best Scoring Seasons
+- **Question:** Which NBA players had the best scoring seasons in the last 25 years?
+### 7. All-Star Level Performance
+- **Question:** How many NBA players performed at an All-Star level?
+### 8. Most Dominant Players
+- **Question:** Who are the most dominant players in the last 25 years?
+### 9. Best Playmakers and Scorers
+- **Question:** Who are the best playmakers and scorers in the last 25 years? What about their shooting percentage?
+### 10. Highest Shooting Performance
+- **Question:** Which NBA players have the highest true shooting season?
+### 11. Most Impactful Players
+- **Question:** Which players had the most impactful contributions to their teams?
 
 ## Exploring the Features
 
@@ -108,33 +134,6 @@ min        0.000000      0.000000      0.000000      0.000000      0.000000
 75%        0.083000      0.179000      0.217000      0.563000      0.179000  
 max        1.000000      1.000000      1.000000      1.500000      1.000000  
 ```
-## Key Questions
-
-These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years. 
-
-### 1. Total Number of NBA Players
-
-- **Question:** What's the total number of NBA players over the years?
-### 2. Trends in Average Points
-- **Question:** Does the average points of NBA players exhibit a trend over the years?
-### 3. Average Rebounds and Assists
-- **Question:** How do the average rebounds and assists of NBA players change over the years?
-### 4. Changes in Maximum Points per Game
-- **Question:** How does the Maximum Points per Game change over the years?
-### 5. Best Playmaking Seasons
-- **Question:** Which NBA players had the best seasons in playmaking in the last 25 years?
-### 6. Best Scoring Seasons
-- **Question:** Which NBA players had the best scoring seasons in the last 25 years?
-### 7. All-Star Level Performance
-- **Question:** How many NBA players performed at an All-Star level?
-### 8. Most Dominant Players
-- **Question:** Who are the most dominant players in the last 25 years?
-### 9. Best Playmakers and Scorers
-- **Question:** Who are the best playmakers and scorers in the last 25 years? What about their shooting percentage?
-### 10. Highest Shooting Performance
-- **Question:** Which NBA players have the highest true shooting season?
-### 11. Most Impactful Players
-- **Question:** Which players had the most impactful contributions to their teams?
 
 ### Correlation Matrix
 
@@ -163,6 +162,8 @@ Initially, we will analyze the NBA stats over the years
 
 Observing the data, it becomes apparent that three-quarters of the population participate in the NBA for up to 14 seasons, while the remaining one-quarter extends their playing careers beyond the 14-season mark  
 
+#### 1. Total Number of NBA players
+
 ![Count of players by years](/plots/4plot.png)  
 
 The depicted plot highlights a pronounced increase in the number of NBA players, commencing from the year 2010.  
@@ -171,20 +172,25 @@ Following this, we will delve into key statistics over the course of time.
 ```python 
 df.groupby('season').mean().T
 ```
+#### 2. Trends in Average Points by an NBA player over the years
 ![Average Points by Season](/plots/5plot.png)
 We observe a gradual and consistent rise in the average points scored by NBA players over the years.  
 Let's apply the same analysis to rebounds and assists.
 
+#### 3. Average Rebounds and Assists by an NBA player over the years
 ![Average Rebounds of NBA player by Season](/plots/6plot.png)  
 ![Average Assists of NBA player by Season](/plots/7plot.png)  
+
+#### 4. Changes in Maximum Points Per Game 
 Next, our attention turns to scoring in the NBA. The subsequent plot shows the Maximum Points per Game by NBA season. While a discernible trend is not immediately apparent, it is noteworthy that in most seasons, the Points-Per-Game (PPG) leader consistently maintains a score of at least 28 points per game.
 ![Maximum PPG by Season](/plots/8plot.png)
 
-Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often the player is assisting teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
+#### 5. Best Playmaking Seasons
+Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often a player assist his teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
-We identify the top playmakers in the league throughout the years, focusing on those who have participated in a minimum of 13 games within a season, along with their corresponding passing statistics and the season they stood out.
+We identify the top playmakers in the league throughout the years, focusing on those who have participated in at least of the 25% of the NBA games (31 games) within a season, along with their corresponding passing statistics and the season they stood out.
 ```python
-pass_skills = df.sort_values(by = 'ast_pct', ascending = False)[df['gp'] > 10]
+pass_skills = df.sort_values(by = 'ast_pct', ascending = False)[df['gp'] > 31]
 pass_skills[['player_name','ast_pct','ast','season']].head(13)
 ```
 
@@ -207,3 +213,31 @@ pass_skills[['player_name','ast_pct','ast','season']].head(13)
 ![top_passers](/plots/9plot.png)
 
 The above plot showcases the extraordinary and historic passing season that Russell Westbrook had in 2016, highlighting the profound impact he had on his teammates.  
+
+#### 6. Best Scoring Seasons
+```python
+best_scoring_seasons = df.sort_values(by = ['pts','ast'], ascending = [False,False]).head(15)
+```
+!['Top Scorers in the last 25 years'](/plots/10plot.png)
+
+
+|      player_name       | pts  |  reb  | ast |season|draft_number|
+|------------------------|------|-------|-----|------|------------| 
+|James Harden            | 36.1 |  6.6  | 7.5 | 2018 |     3      |
+|Kobe Bryant             | 35.4 |  5.3  | 4.5 | 2005 |     13     |
+|James Harden            | 34.3 |  6.6  | 7.5 | 2019 |     3      |
+|Joel Embiid             | 33.1 | 10.2  | 4.2 | 2022 |     3      |
+|Allen Iverson           | 33.0 |  3.2  | 7.4 | 2005 |     1      |
+|Luka Doncic             | 32.4 |  8.6  | 8.0 | 2022 |     3      |
+|Damian Lillard          | 32.2 |  4.8  | 7.3 | 2020 |     6      |
+|Tracy McGrady           | 32.1 |  6.5  | 5.5 | 2002 |     9      |
+|Stephen Curry           | 32.0 |  5.5  | 5.8 | 2020 |     7      |
+|Kevin Durant            | 32.0 |  7.4  | 5.5 | 2013 |     2      |
+|Russell Westbrook       | 31.6 | 10.7  | 10.4| 2016 |     4      |
+|Kobe Bryant             | 31.6 |  5.7  | 5.4 | 2006 |     13     |
+|LeBron James            | 31.4 |  7.0  | 6.6 | 2005 |     1      |
+|Allen Iverson           | 31.4 |  4.5  | 5.5 | 2001 |     1      |
+|Shai Gilgeous-Alexander | 31.4 |  4.8  | 5.5 | 2022 |     11     |
+
+
+
