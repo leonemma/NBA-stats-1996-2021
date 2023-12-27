@@ -155,5 +155,7 @@ Next, our attention turns to scoring in the NBA. The subsequent plot shows the M
 
 Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often the player is assisting teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
-
+```python
+![Assist pct leaders](/plots/pass_skills.txt)
+```
 
