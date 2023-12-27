@@ -246,3 +246,33 @@ We focus on the top 15 players with the best season in scoring and will explore 
 - Kobe Bryant was 13-th in his draft season and exists in this special list twice.
 - Russel Westbrook averaged a triple double in 2016.
 
+
+## Players Individual's Statistics
+#### We are going to analyze the average statistics throughout their career.To facilitate this analysis we transform the dataset in such a way that every player exists in the dataset exactly once.
+```python
+players = df.groupby('player_name').mean()
+```
+Now we are able to evaluate a player's career and identify the players who had/have a measurable duration over time.
+
+## Feature Engineering
+We don't need the 'age' and 'season' features any more
+```python
+players.drop('season', axis = 1, inplace = True)
+players.drop('age', axis = 1, inplace = True)
+```
+We are goint to create a new column that categorizes if a player was/is in all star level based on the following metrics:  
+- Top 10% Scoring Low
+- Top 10% Rebounding Low
+- Top 10% Passing Low
+```python
+scoring = round(players['pts'].quantile(0.9),2)
+rebounding = round(players['reb'].quantile(0.9),2)
+passing = round(players['ast'].quantile(0.9),2)
+
+players['all_star'] = np.where(((players['pts'] > scoring) & (players['reb'] > rebounding)) | ((players['pts'] > scoring) & (players['ast'] > passing)), 'Yes', 'No')
+```
+## Data Analysis
+### Consistent All-Star Level Players
+Let's see the distribution of the new feature we created : 
+!['All Star Distribution'](/plots/12plot.png)
+We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level *consistently*.
