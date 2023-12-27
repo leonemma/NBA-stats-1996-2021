@@ -88,8 +88,8 @@ These questions will guide our exploration and uncover insights into the dynamic
 - **Question:** Which NBA players had the best seasons in playmaking in the last 25 years?
 ### 6. Best Scoring Seasons
 - **Question:** Which NBA players had the best scoring seasons in the last 25 years?
-### 7. All-Star Level Performance
-- **Question:** How many NBA players performed at an All-Star level?
+### 7. Consistent All-Star Level Players
+- **Question:** How many NBA players performed at an All-Star level consistently?
 ### 8. Most Dominant Players
 - **Question:** Who are the most dominant players in the last 25 years?
 ### 9. Best Playmakers and Scorers
@@ -272,9 +272,32 @@ passing = round(players['ast'].quantile(0.9),2)
 players['all_star'] = np.where(((players['pts'] > scoring) & (players['reb'] > rebounding)) | ((players['pts'] > scoring) & (players['ast'] > passing)), 'Yes', 'No')
 ```
 ## Data Analysis
-### Consistent All-Star Level Players
+### 7. Consistent All-Star Level Players
 Let's see the distribution of the new feature we created :  
 
 !['All Star Distribution'](/plots/12plot.png)  
 
 We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level **consistently**.
+
+## 8. Most Dominant Players
+We define a dominant player as the player who had/has at least 20 points per game and 9 rebounds throughout his career.  
+
+```python
+dom = players[(players['pts'] > 20) & (players['reb'] > 9)].sort_values(by = 'pts', ascending = False)
+```
+!['Dominant players'](/plots/13plot.png)  
+
+|           player_name |  pts  |  reb  |  ast |SeasonsPlayed|
+|-----------------------|-------|-------|------|-------------|
+|           Joel Embiid | 26.54 | 10.92 | 3.31 |     7.0     |  
+|         Anthony Davis | 23.81 | 10.29 | 2.45 |     11.0    |   
+| Giannis Antetokounmpo | 23.25 |  9.81 | 4.79 |     10.0    |
+|    Karl-Anthony Towns | 23.22 | 10.85 | 3.47 |     8.0     |
+|           Karl Malone | 22.88 |  9.06 | 4.20 |     8.0     |
+|      Shaquille O'Neal | 21.88 | 10.01 | 2.42 |     15.0    |
+|          Nikola Jokic | 20.40 | 10.55 | 6.71 |     8.0     |
+
+There are only 7 NBA players in the last 25 years with these stats.
+
+
+            
