@@ -287,17 +287,38 @@ dom = players[(players['pts'] > 20) & (players['reb'] > 9)].sort_values(by = 'pt
 ```
 !['Dominant players'](/plots/13plot.png)  
 
-|           player_name |  pts  |  reb  |  ast |SeasonsPlayed|
-|-----------------------|-------|-------|------|-------------|
-|           Joel Embiid | 26.54 | 10.92 | 3.31 |     7.0     |  
-|         Anthony Davis | 23.81 | 10.29 | 2.45 |     11.0    |   
-| Giannis Antetokounmpo | 23.25 |  9.81 | 4.79 |     10.0    |
-|    Karl-Anthony Towns | 23.22 | 10.85 | 3.47 |     8.0     |
-|           Karl Malone | 22.88 |  9.06 | 4.20 |     8.0     |
-|      Shaquille O'Neal | 21.88 | 10.01 | 2.42 |     15.0    |
-|          Nikola Jokic | 20.40 | 10.55 | 6.71 |     8.0     |
+|           player_name |  pts  |  reb  |  ast |SeasonsPlayed|draft_number|
+|-----------------------|-------|-------|------|-------------|------------|
+|           Joel Embiid | 26.54 | 10.92 | 3.31 |     7.0     |    3.0     |
+|         Anthony Davis | 23.81 | 10.29 | 2.45 |     11.0    |    1.0     |
+| Giannis Antetokounmpo | 23.25 |  9.81 | 4.79 |     10.0    |    15.0    |
+|    Karl-Anthony Towns | 23.22 | 10.85 | 3.47 |     8.0     |    1.0     |
+|           Karl Malone | 22.88 |  9.06 | 4.20 |     8.0     |    13.0    |
+|      Shaquille O'Neal | 21.88 | 10.01 | 2.42 |     15.0    |    1.0     |
+|          Nikola Jokic | 20.40 | 10.55 | 6.71 |     8.0     |    41.0    |
 
 There are only 7 NBA players in the last 25 years with these stats.
 
+## 9. Best Scorers - Playmakers (Combo-Guards)
+We define a combo-guard as the player who had/has at least 20 points per game and 5 assists throughout his career  
+```python
+scor_pass = players[(players['pts'] > 20) & (players['ast'] > 5)]
+```
+!['Combo-guard'](/plots/14plot.png)  
 
-            
+|	player_name	   |  pts  | ast	|draft_number|
+|Allen Iverson	   | 26.06 | 6.00	|    1.0     |
+|Damian Lillard   | 25.50 | 6.78	|    6.0     |
+|De'Aaron Fox	   | 20.56 | 6.23	|    5.0     |
+|Dwyane Wade	   | 21.83 | 5.38	|    5.0     |
+|Ja Morant	      | 22.62 | 7.37	|    2.0     |
+|James Harden	   | 24.57 | 7.20	|    3.0     |
+|Kyrie Irving	   | 23.77 | 5.73	|    1.0     |
+|LeBron James	   | 27.20 | 7.34	|    1.0     |
+|Luka Doncic	   | 27.70 | 8.02	|    3.0     |
+|Nikola Jokic	   | 20.40 | 6.71	|    41.0    |
+|Russell Westbrook| 22.48 | 8.33	|    4.0     |
+|Stephen Curry	   | 24.16 | 6.40	|    7.0     |
+|Trae Young	      | 25.72 | 9.34	|    5.0     |
+
+There are 13 players in this list.
