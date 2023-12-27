@@ -155,7 +155,13 @@ Next, our attention turns to scoring in the NBA. The subsequent plot shows the M
 
 Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often the player is assisting teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
+We identify the top playmakers in the league throughout the years, focusing on those who have participated in a minimum of 13 games within a season, along with their corresponding passing statistics and the season they stood out.
 ```python
+pass_skills = df.sort_values(by = 'ast_pct', ascending = False)[df['gp'] > 10]
+pass_skills1 = pass_skills[['player_name','ast_pct','ast','season']].head(13)
+pass_skills1
+```
+
 |    player_name   | ast_pct |  ast  | season |
 |------------------|---------|-------|--------|
 |Russell Westbrook |   0.543 | 10.4  |  2016  |
@@ -170,6 +176,16 @@ Following we will focus on the players with the highest assist percentage.A play
 |     Andre Miller |   0.484 | 10.9  |  2001  |
 |       Steve Nash |   0.483 | 11.0  |  2009  |
 |      Rajon Rondo |   0.480 |  9.8  |  2013  |
-|Russell Westbrook |   0.477 | 11.7  |  2020  |
-```
+|Russell Westbrook |   0.477 | 11.7  |  2020  |   
+
+![top_passers](/plots/9plot.png)
+
+The above plot showcases the extraordinary and historic passing season that Russell Westbrook had in 2016, highlighting the profound impact he had on his teammates.  
+
+
+
+
+
+
+
 
