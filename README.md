@@ -77,6 +77,7 @@ df.info()
   
 ![Histograms of Numeric Variables](/plots/1plot.png)
 
+![stats](/plots/describe_output.txt)  
 
 ### Correlation Matrix
 
