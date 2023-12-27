@@ -304,9 +304,10 @@ We define a combo-guard as the player who had/has at least 20 points per game an
 ```python
 scor_pass = players[(players['pts'] > 20) & (players['ast'] > 5)]
 ```
-!['Combo-guard'](/plots/14plot.png)  
+!['Combo-guard'](/plots/15plot.png)  
 
 |	player_name	   |  pts  | ast	|draft_number|
+|-----------------|-------|------|------------|
 |Allen Iverson	   | 26.06 | 6.00	|    1.0     |
 |Damian Lillard   | 25.50 | 6.78	|    6.0     |
 |De'Aaron Fox	   | 20.56 | 6.23	|    5.0     |
@@ -321,4 +322,7 @@ scor_pass = players[(players['pts'] > 20) & (players['ast'] > 5)]
 |Stephen Curry	   | 24.16 | 6.40	|    7.0     |
 |Trae Young	      | 25.72 | 9.34	|    5.0     |
 
-There are 13 players in this list.
+There are 13 players in this list.  
+- Allen Iverson and Dwyane Wade are the only retired NBA players
+- Nikola Jokic was the only player in dominant players list and in combo-guard list.He was the 41-st in his draft season too!
+  
