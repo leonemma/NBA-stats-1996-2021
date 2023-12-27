@@ -216,8 +216,9 @@ The above plot showcases the extraordinary and historic passing season that Russ
 
 #### 6. Best Scoring Seasons
 ```python
-best_scoring_seasons = df.sort_values(by = ['pts','ast'], ascending = [False,False]).head(15)
+best_scoring_seasons = df.sort_values(by = 'pts', ascending = False).head(15)
 ```
+We focus on the top 15 players with the best season in scoring and will explore some of their statistics.
 !['Top Scorers in the last 25 years'](/plots/10plot.png)
 
 
@@ -239,5 +240,7 @@ best_scoring_seasons = df.sort_values(by = ['pts','ast'], ascending = [False,Fal
 |Allen Iverson           | 31.4 |  4.5  | 5.5 | 2001 |     1      |
 |Shai Gilgeous-Alexander | 31.4 |  4.8  | 5.5 | 2022 |     11     |
 
-
+- The first thing that we notice is that James Harden had two historic back two back seasons in 2018 and 2019 in scoring. 
+- The 1/3 of this list was after the 2019 season.
+- We notice that only two of these players,Allen Iverson and Lebron James were first pick in their draft season.It's really remarkable that Kobe Bryant was 13-th in his draft season and exists in this special list twice.
 
