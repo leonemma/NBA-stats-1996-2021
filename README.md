@@ -242,7 +242,7 @@ We focus on the top 15 players with the best season in scoring and will explore 
 
 - James Harden had two historic back two back seasons in 2018 and 2019 in scoring. 
 - The 1/3 of this list was after the 2019 season.
-- Allen Iverson and Lebron James are the only players in this list that were first pick in their draft season.  
+- Allen Iverson and Lebron James are the only players in this list that were first pick in their draft season.
 - Kobe Bryant was 13-th in his draft season and exists in this special list twice.
 - Russel Westbrook averaged a triple double in 2016.
 
