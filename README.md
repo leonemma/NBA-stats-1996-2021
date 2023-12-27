@@ -156,6 +156,20 @@ Next, our attention turns to scoring in the NBA. The subsequent plot shows the M
 Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often the player is assisting teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
 ```python
-![Assist pct leaders](/plots/pass_skills.txt)
+|    player_name   | ast_pct |  ast  | season |
+|------------------|---------|-------|--------|
+|Russell Westbrook |   0.543 | 10.4  |  2016  |
+|       Chris Paul |   0.512 | 11.0  |  2008  |
+|     James Harden |   0.505 | 11.2  |  2016  |
+|       Chris Paul |   0.500 | 11.6  |  2007  |
+|      Rajon Rondo |   0.498 | 11.7  |  2011  |
+|       Steve Nash |   0.498 | 11.4  |  2010  |
+|       Chris Paul |   0.493 | 10.0  |  2015  |
+|       Steve Nash |   0.491 | 10.7  |  2011  |
+|      Rajon Rondo |   0.490 | 11.1  |  2012  |
+|     Andre Miller |   0.484 | 10.9  |  2001  |
+|       Steve Nash |   0.483 | 11.0  |  2009  |
+|      Rajon Rondo |   0.480 |  9.8  |  2013  |
+|Russell Westbrook |   0.477 | 11.7  |  2020  |
 ```
 
