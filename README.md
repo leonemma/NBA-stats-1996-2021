@@ -108,6 +108,33 @@ min        0.000000      0.000000      0.000000      0.000000      0.000000
 75%        0.083000      0.179000      0.217000      0.563000      0.179000  
 max        1.000000      1.000000      1.000000      1.500000      1.000000  
 ```
+## Key Questions
+
+These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years.
+
+### 1. Total Number of NBA Players
+
+- **Question:** What's the total number of NBA players over the years?
+### 2. Trends in Average Points
+- **Question:** Does the average points of NBA players exhibit a trend over the years?
+### 3. Average Rebounds and Assists
+- **Question:** How do the average rebounds and assists of NBA players change over the years?
+### 4. Changes in Maximum Points per Game
+- **Question:** How does the Maximum Points per Game change over the years?
+### 5. Best Playmaking Seasons
+- **Question:** Which NBA players had the best seasons in playmaking in the last 25 years?
+### 6. Best Scoring Seasons
+- **Question:** Which NBA players had the best scoring seasons in the last 25 years?
+### 7. All-Star Level Performance
+- **Question:** How many NBA players performed at an All-Star level?
+### 8. Most Dominant Players
+- **Question:** Who are the most dominant players in the last 25 years?
+### 9. Best Playmakers and Scorers
+- **Question:** Who are the best playmakers and scorers in the last 25 years? What about their shooting percentage?
+### 10. Highest Shooting Performance
+- **Question:** Which NBA players have the highest true shooting season?
+### 11. Most Impactful Players
+- **Question:** Which players had the most impactful contributions to their teams?
 
 ### Correlation Matrix
 
