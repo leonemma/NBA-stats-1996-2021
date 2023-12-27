@@ -150,6 +150,10 @@ Let's apply the same analysis to rebounds and assists.
 
 ![Average Rebounds of NBA player by Season](/plots/6plot.png)  
 ![Average Assists of NBA player by Season](/plots/7plot.png)  
+Next, our attention turns to scoring in the NBA. The subsequent plot shows the Maximum Points per Game by NBA season. While a discernible trend is not immediately apparent, it is noteworthy that in most seasons, the Points-Per-Game (PPG) leader consistently maintains a score of at least 28 points per game.
+![Maximum PPG by Season](/plots/8plot.png)
+
+Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often the player is assisting teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
 
 
