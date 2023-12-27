@@ -110,7 +110,7 @@ max        1.000000      1.000000      1.000000      1.500000      1.000000
 ```
 ## Key Questions
 
-These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years.
+These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years. 
 
 ### 1. Total Number of NBA Players
 
