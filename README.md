@@ -112,3 +112,44 @@ max        1.000000      1.000000      1.000000      1.500000      1.000000
 ### Correlation Matrix
 
 ![Correlation Matrix](/plots/2plot.png)
+
+## Feature Engineering
+- The 'country' feature encompasses numerous values. To enhance simplicity, we will transform this variable into a binary distinction, categorizing values as either 'USA' or 'Other.' This reduction aims to streamline the analysis by consolidating the diverse country values into a more manageable binary representation.
+ ```python
+df['country'] = np.where(df['country'] != 'USA', 'Other','USA')
+ ```
+-  We create a new column that is the total seasons a player had been playing in the NBA
+ ```python
+df['SeasonsPlayed'] = df.groupby('player_name')['season'].transform('nunique')
+```
+#### Define a function to extract the start year from the season string
+ ```python 
+ def extract_start_year(season_str):
+    return int(season_str[:4])
+
+df['season'] = df['season'].apply(extract_start_year)
+```
+## Exploratory Data Analysis
+Initially, we will analyze the NBA stats over the years
+- Let's explore the new feature ('SeasonsPlayed') we created :
+![Count of players](/plots/3plot.png)  
+
+Observing the data, it becomes apparent that three-quarters of the population participate in the NBA for up to 14 seasons, while the remaining one-quarter extends their playing careers beyond the 14-season mark  
+
+![Count of players by years](/plots/4plot.png)  
+
+The depicted plot highlights a pronounced increase in the number of NBA players, commencing from the year 2010.  
+
+Following this, we will delve into key statistics over the course of time.  
+```python 
+df.groupby('season').mean().T
+```
+![Average Points by Season](/plots/5plot.png)
+We observe a gradual and consistent rise in the average points scored by NBA players over the years.  
+Let's apply the same analysis to rebounds and assists.
+
+![Average Rebounds of NBA player by Season](/plots/6plot.png)  
+![Average Assists of NBA player by Season](/plots/7plot.png)  
+
+
+
