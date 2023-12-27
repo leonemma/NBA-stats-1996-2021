@@ -273,6 +273,8 @@ players['all_star'] = np.where(((players['pts'] > scoring) & (players['reb'] > r
 ```
 ## Data Analysis
 ### Consistent All-Star Level Players
-Let's see the distribution of the new feature we created : 
-!['All Star Distribution'](/plots/12plot.png)
-We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level *consistently*.
+Let's see the distribution of the new feature we created :  
+
+!['All Star Distribution'](/plots/12plot.png)  
+
+We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level **consistently**.
