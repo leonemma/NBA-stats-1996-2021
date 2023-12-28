@@ -4,6 +4,7 @@
 ## Authors
 
 - [@leonemma](https://github.com/leonemma)
+- The source code for this project is available on [GitHub](https://github.com/leonemma/NBA-stats-1996-2021/blob/main/NBA%20players%20stats.ipynb).
 
 ## Contents  
 - [Introduction](#Introduction)
@@ -37,14 +38,6 @@ To install NBA-Stats-1996-2021, follow these steps:
    ```bash
    git clone https://github.com/leonemma/NBA-stats-1996-2021.git
 cd NBA-Stats-1996-2021
-
-## Usage
-
-Once you have successfully installed NBA-Stats-1996-2021, you can use the following steps to interact with the project:
-
-1. **Run the main Jupyter notebook:**
-   ```bash
-   jupyter notebook NBA players stats.ipynb
 
 ## Feature-Explanation
 This dataset contains 22 columns and 12844 observations.
