@@ -6,10 +6,16 @@
 - [@leonemma](https://github.com/leonemma)
 
 ## Contents  
-- ['Introduction'](#Introduction)
-- ['Installation'](#Installation)
-- ['Usage'](#Usage)
-- ['Feature Explanation'](#Feature Explanation)
+- [Introduction](#Introduction)
+- [Installation](#Installation)
+- [Usage](#Usage)
+  - [Feature Explanation](#FeatureExplanation)
+- [Data Cleaning](#DataCleaning)
+- [Key Questions](#KeyQuestions)
+  - [Exploring the Features](#Features-Distributions)
+- [Feature Engineering](#Feature-Engineering)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+  
 
 ## Introduction
 
@@ -40,7 +46,7 @@ Once you have successfully installed NBA-Stats-1996-2021, you can use the follow
    ```bash
    jupyter notebook NBA players stats.ipynb
 
-## Feature Explanation
+## FeatureExplanation
 This dataset contains 22 columns and 12844 observations.
 
 - Unnamed 0: - 
@@ -68,7 +74,7 @@ This dataset contains 22 columns and 12844 observations.
 
 
 
-## Data Cleaning
+## DataCleaning
 This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we are going to analyze the NBA over the years, and secondly transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
 
 #### The dataset does not contain any null values.  
@@ -84,7 +90,7 @@ df['draft_round'] = df['draft_round'].astype(int)
 df['draft_number'] = df['draft_number'].astype(int)
  ```
   
-## Key Questions
+## KeyQuestions
 
 - These questions will guide our exploration and uncover insights into the dynamics of NBA players's performance over the years.  
 
@@ -111,7 +117,7 @@ df['draft_number'] = df['draft_number'].astype(int)
 ### 11. Most Impactful Players
 - **Question:** Which players had/have the most impactful contributions to their teams?
 
-## Exploring the Features
+## Eeatures-Distributions
 
 ![Histograms of Numeric Variables](/plots/1plot.png)
 ```python
@@ -155,7 +161,7 @@ max        1.000000      1.000000      1.000000      1.500000      1.000000
 - Interestingly, there is a negative correlation between a player's height and assist percentage. This suggests that assist percentage serves as a noteworthy metric for guards, who typically have shorter statures and are more involved in playmaking.
 - "The scoring variable ('pts') demonstrates positive correlations with both rebounding and passing metrics. Players who contribute significantly to scoring are likely to excel in rebounding and passing as well.
   
-## Feature Engineering
+## Feature-Engineering
 - The 'country' feature encompasses numerous values. To enhance simplicity, we will transform this variable into a binary distinction, categorizing values as either 'USA' or 'Other.' This reduction aims to streamline the analysis by consolidating the diverse country values into a more manageable binary representation.
  ```python
 df['country'] = np.where(df['country'] != 'USA', 'Other','USA')
@@ -171,7 +177,7 @@ df['SeasonsPlayed'] = df.groupby('player_name')['season'].transform('nunique')
 
 df['season'] = df['season'].apply(extract_start_year)
 ```
-## Exploratory Data Analysis
+## Exploratory-Data-Analysis
 Initially, we are going to analyze the NBA stats over the years
 - Let's explore the new feature ('SeasonsPlayed') we created :
 ![Count of players](/plots/3plot.png)  
@@ -271,7 +277,7 @@ players = df.groupby('player_name').mean()
 ```
 Now we are able to evaluate a player's career and identify the players who had/have a measurable duration over time.
 
-## Feature Engineering
+### Feature-Engineering
 We don't need the 'age' and 'season' features any more
 ```python
 players.drop('season', axis = 1, inplace = True)
