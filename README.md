@@ -8,7 +8,8 @@
 ## Contents  
 - ['Introduction'](#Introduction)
 - ['Installation'](#Installation)
-- ['Usage'](## Usage)
+- ['Usage'](#Usage)
+- ['Feature Explanation'](#FeatureExplanation)
 
 ## Introduction
 
@@ -39,7 +40,7 @@ Once you have successfully installed NBA-Stats-1996-2021, you can use the follow
    ```bash
    jupyter notebook NBA players stats.ipynb
 
-## Feature Overview
+## Feature Explanation
 This dataset contains 22 columns and 12844 observations.
 
 - Unnamed 0: - 
