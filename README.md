@@ -5,6 +5,11 @@
 
 - [@leonemma](https://github.com/leonemma)
 
+## Contents  
+- ['Introduction'](## Introduction)
+- ['Installation'](## Installation)
+- ['Usage'](## Usage)
+
 ## Introduction
 
 In this project, we will conduct Exploratory Data Analysis (EDA) on NBA statistics spanning the seasons from 1996 through 2021. Our focus will be on identifying and exploring the standout players in the NBA during this period.
