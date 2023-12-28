@@ -343,7 +343,7 @@ There are 13 players in this list.
 - Allen Iverson and Dwyane Wade are the only retired NBA players
 - Nikola Jokic was the only player in dominant players list and in combo-guard list.He was the 41-st in his draft season too!
 
-  !['Combo-guard'](/plots/15plot.png)  
+  !['Combo-guard'](/plots/14plot.png)  
 
 
 ## 10. Highest Shooting Performance
