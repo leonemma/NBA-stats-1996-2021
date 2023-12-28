@@ -63,18 +63,24 @@ This dataset contains 22 columns and 12844 observations.
 
 
 ## Data Cleaning
-This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we will analyze the NBA over the years, and secondly, we will transform the dataset to represent NBA player stats in a way that each player exists in the dataset only once.
+This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we will analyze the NBA over the years, and secondly, we will transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
 
 #### The dataset does not contain any null values.  
+
+- At first we are going to remove the first column 'Unnamed: 0'.    
+- Secondly,we are going to turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
 ```python
-df.info()
-```
-- At first we remove the first column 'Unnamed: 0'.    
-- Secondly,we will turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
+df.drop('Unnamed: 0', axis = 1, inplace = True)
+
+df['draft_round'] = df['draft_round'].replace('Undrafted', 0)
+df['draft_number'] = df['draft_number'].replace('Undrafted', 0)
+df['draft_round'] = df['draft_round'].astype(int)
+df['draft_number'] = df['draft_number'].astype(int)
+ ```
   
 ## Key Questions
 
-These questions will guide our exploration and uncover insights into the dynamics of NBA performance over the years. 
+- These questions will guide our exploration and uncover insights into the dynamics of NBA players's performance over the years.  
 
 ### 1. Total Number of NBA Players
 - **Question:** What's the total number of NBA players over the years?
@@ -100,7 +106,6 @@ These questions will guide our exploration and uncover insights into the dynamic
 - **Question:** Which players had/have the most impactful contributions to their teams?
 
 ## Exploring the Features
-
 
 ![Histograms of Numeric Variables](/plots/1plot.png)
 ```python
@@ -137,8 +142,13 @@ max        1.000000      1.000000      1.000000      1.500000      1.000000
 
 ### Correlation Matrix
 
-![Correlation Matrix](/plots/2plot.png)
+![Correlation Matrix](/plots/2plot.png)  
 
+- There exists a robust positive relationship between the height and weight of players, confirming our initial expectations
+- "Evidently, player height exhibits a positive correlation with various rebounding metrics, including total rebounds ('reb'), offensive rebound percentage ('oreb_pct'), and defensive rebound percentage ('dreb_pct'). This implies that, on average, taller players tend to secure more rebounds
+- Interestingly, there is a negative correlation between a player's height and assist percentage. This suggests that assist percentage serves as a noteworthy metric for guards, who typically have shorter statures and are more involved in playmaking.
+- "The scoring variable ('pts') demonstrates positive correlations with both rebounding and passing metrics. Players who contribute significantly to scoring are likely to excel in rebounding and passing as well.
+  
 ## Feature Engineering
 - The 'country' feature encompasses numerous values. To enhance simplicity, we will transform this variable into a binary distinction, categorizing values as either 'USA' or 'Other.' This reduction aims to streamline the analysis by consolidating the diverse country values into a more manageable binary representation.
  ```python
@@ -156,7 +166,7 @@ df['SeasonsPlayed'] = df.groupby('player_name')['season'].transform('nunique')
 df['season'] = df['season'].apply(extract_start_year)
 ```
 ## Exploratory Data Analysis
-Initially, we will analyze the NBA stats over the years
+Initially, we are going to analyze the NBA stats over the years
 - Let's explore the new feature ('SeasonsPlayed') we created :
 ![Count of players](/plots/3plot.png)  
 
@@ -186,7 +196,7 @@ Next, our attention turns to scoring in the NBA. The subsequent plot shows the M
 ![Maximum PPG by Season](/plots/8plot.png)
 
 ### 5. Best Playmaking Seasons
-Following we will focus on the players with the highest assist percentage.A player's assist percentage shows how often a player assist his teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
+Following we are going to focus on the seasons with the highest assist percentage by a player. A player's assist percentage shows how often a player assist his teammates. Since a player can only get an assist when his teammate makes a field goal, AST% looks at how many of these teammate made field goals were a result of that player's assists.  
 
 We identify the top playmakers in the league throughout the years, focusing on those who have participated in at least of the 25% of the NBA games (31 games) within a season, along with their corresponding passing statistics and the season they stood out.
 ```python
