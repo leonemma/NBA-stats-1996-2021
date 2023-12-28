@@ -63,7 +63,7 @@ This dataset contains 22 columns and 12844 observations.
 
 
 ## Data Cleaning
-This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we will analyze the NBA over the years, and secondly, we will transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
+This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we are going to analyze the NBA over the years, and secondly transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
 
 #### The dataset does not contain any null values.  
 
