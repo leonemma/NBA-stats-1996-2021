@@ -9,11 +9,10 @@
 ## Contents  
 - [Introduction](#Introduction)
 - [Installation](#Installation)
-- [Usage](#Usage)
-  - [Feature Explanation](#Feature-Explanation)
+- [Feature Explanation](#Feature-Explanation)
 - [Data Cleaning](#Data-Cleaning)
 - [Key Questions](#KeyQuestions)
-  - [Exploring the Features](#Features-Distributions)
+  - [Features Exploration](#Features-Distributions)
 - [Feature Engineering](#Feature-Engineering)
 - [Exploratory Data Analysis](#Exploratory-Data-Analysis)
   
