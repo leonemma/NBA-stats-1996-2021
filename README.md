@@ -6,8 +6,8 @@
 - [@leonemma](https://github.com/leonemma)
 
 ## Contents  
-- ['Introduction'](## Introduction)
-- ['Installation'](## Installation)
+- ['Introduction'](#Introduction)
+- ['Installation'](#Installation)
 - ['Usage'](## Usage)
 
 ## Introduction
