@@ -85,26 +85,26 @@ These questions will guide our exploration and uncover insights into the dynamic
 ### 4. Changes in Maximum Points per Game
 - **Question:** How does the Maximum Points per Game change over the years?
 ### 5. Best Playmaking Seasons
-- **Question:** Which NBA players had the best seasons in playmaking in the last 25 years?
+- **Question:** Which NBA players had/have the best seasons in playmaking in the last 25 years?
 ### 6. Best Scoring Seasons
-- **Question:** Which NBA players had the best scoring seasons in the last 25 years?
+- **Question:** Which NBA players had/have the best scoring seasons in the last 25 years?
 ### 7. Consistent All-Star Level Players
 - **Question:** How many NBA players performed at an All-Star level consistently?
 ### 8. Most Dominant Players
-- **Question:** Who are the most dominant players in the last 25 years?
+- **Question:** Who /were/are the most dominant players in the last 25 years?
 ### 9. Best Playmakers and Scorers
-- **Question:** Who are the best playmakers and scorers in the last 25 years? What about their shooting percentage?
+- **Question:** Who were/are the best playmakers and scorers in the last 25 years? 
 ### 10. Highest Shooting Performance
-- **Question:** Which NBA players have the highest true shooting season?
+- **Question:** Which NBA players had/have the highest true shooting season?
 ### 11. Most Impactful Players
-- **Question:** Which players had the most impactful contributions to their teams?
+- **Question:** Which players had/have the most impactful contributions to their teams?
 
 ## Exploring the Features
 
 
 ![Histograms of Numeric Variables](/plots/1plot.png)
 ```python
-                age  player_height  player_weight   draft_round  draft_number  \
+                age  player_height  player_weight   draft_round  draft_number  
 count  12844.000000   12844.000000   12844.000000  12844.000000  12844.000000   
 mean      27.045313     200.555097     100.263279      1.059172     17.774914   
 std        4.339211       9.111090      12.426628      0.683223     16.803276   
@@ -114,7 +114,7 @@ min       18.000000     160.020000      60.327736      0.000000      0.000000
 75%       30.000000     208.280000     108.862080      1.000000     29.000000   
 max       44.000000     231.140000     163.293120      8.000000    165.000000   
 
-                 gp           pts           reb           ast    net_rating  \
+                 gp           pts           reb           ast    net_rating  
 count  12844.000000  12844.000000  12844.000000  12844.000000  12844.000000   
 mean      51.154158      8.212582      3.558486      1.824681     -2.226339   
 std       25.084904      6.016573      2.477885      1.800840     12.665124   
@@ -217,10 +217,9 @@ The above plot showcases the extraordinary and historic passing season that Russ
 ### 6. Best Scoring Seasons
 ```python
 best_scoring_seasons = df.sort_values(by = 'pts', ascending = False).head(15)
+best_scoring_seasons[['player_name','pts','reb','ast','season','draft_number']]
 ```
 We focus on the top 15 players with the best season in scoring and will explore some of their statistics.
-!['Top Scorers in the last 25 years'](/plots/10plot.png)
-
 
 |      player_name       | pts  |  reb  | ast |season|draft_number|
 |------------------------|------|-------|-----|------|------------| 
@@ -245,6 +244,8 @@ We focus on the top 15 players with the best season in scoring and will explore 
 - Allen Iverson and Lebron James are the only players in this list that were first pick in their draft season.
 - Kobe Bryant was 13-th in his draft season and exists in this special list twice.
 - Russel Westbrook averaged a triple double in 2016.
+  !['Top Scorers in the last 25 years'](/plots/10plot.png)
+
 
 
 ## Players Individual's Statistics
@@ -284,8 +285,8 @@ We define a dominant player as the player who had/has at least 20 points per gam
 
 ```python
 dom = players[(players['pts'] > 20) & (players['reb'] > 9)].sort_values(by = 'pts', ascending = False)
+dom[['player_name','pts','reb','ast','SeasonPlayed','draft_number']]
 ```
-!['Dominant players'](/plots/13plot.png)  
 
 |           player_name |  pts  |  reb  |  ast |SeasonsPlayed|draft_number|
 |-----------------------|-------|-------|------|-------------|------------|
@@ -297,14 +298,16 @@ dom = players[(players['pts'] > 20) & (players['reb'] > 9)].sort_values(by = 'pt
 |      Shaquille O'Neal | 21.88 | 10.01 | 2.42 |     15.0    |    1.0     |
 |          Nikola Jokic | 20.40 | 10.55 | 6.71 |     8.0     |    41.0    |
 
-There are only 7 NBA players in the last 25 years with these stats.
+There are only 7 NBA players in the last 25 years with these stats.  
+!['Dominant players'](/plots/13plot.png)  
+
 
 ## 9. Best Scorers - Playmakers (Combo-Guards)
 We define a combo-guard as the player who had/has at least 20 points per game and 5 assists throughout his career  
 ```python
 scor_pass = players[(players['pts'] > 20) & (players['ast'] > 5)]
+scor_pass[['player_name','pts','ast','draft_number']]
 ```
-!['Combo-guard'](/plots/15plot.png)  
 
 |	player_name	   |  pts  | ast	|draft_number|
 |-----------------|-------|------|------------|
@@ -325,4 +328,77 @@ scor_pass = players[(players['pts'] > 20) & (players['ast'] > 5)]
 There are 13 players in this list.  
 - Allen Iverson and Dwyane Wade are the only retired NBA players
 - Nikola Jokic was the only player in dominant players list and in combo-guard list.He was the 41-st in his draft season too!
+
+  !['Combo-guard'](/plots/15plot.png)  
+
+
+## 10. Highest Shooting Performance
+
+Let's analyze another statistic that is called True Shooting Percentage ('ts_pct').True shooting percentage is a measure of shooting efficiency that takes into account field goals and free throws.
+
+** True Shooting Percentage = PTS / (2*(FGA + 0.44 * FTA) **  
+
+ We will focus only on the top 10 NBA players with the highest true shooting percentages, considering only players who have played more than 30 games.  
+ ```python
+shooters = players[players['gp'] > 30].sort_values(by = 'ts_pct', ascending = False).head(10)
+```
+ 
+ |     player_name    |  ts_pct  |    pts    | player_height |
+ |--------------------|----------|-----------|---------------|
+ |Robert Williams III | 0.727400 |  6.740000 |   205.232000  |
+ |       Jericho Sims | 0.727000 |  2.800000 |   207.010000  |
+ |     Daniel Gafford | 0.707500 |  7.625000 |   207.645000  |
+ |     Walker Kessler | 0.702000 |  9.200000 |   213.360000  |
+ |  Mitchell Robinson | 0.686800 |  8.240000 |   213.868000  |
+ |     Onyeka Okongwu | 0.682333 |  7.566667 |   204.046667  |
+ |        Nic Claxton | 0.681500 | 10.650000 |   210.820000  |
+ |       Jeremy Evans | 0.679429 |  2.942857 |   205.740000  |
+ |       Jaxson Hayes | 0.662250 |  7.300000 |   211.455000  |
+ |      Jarrett Allen | 0.660167 | 12.233333 |   209.550000  |
+
+Given the distribution of the feature 'player_height', we can conclude that most players are taller than the 75% of the population.Hence these players are considered as tall and this metric is very meaningful for the players that play in center position or power forward.    
+ !['True Shooting PCT'](/plots/17plot.png)   
+
+
+## 11. Most Impactful Players  
+
+There is a metric that can measure a player's impact when he is on the court, the net rating ('net_rating').When referring to a player's net rating, it usually involves the point differential when that player is on the court per 100 possessions  
+For example, if a player has a net rating of +2.05, it means that, on average, they are scoring 2.05 more points per 100 possessions than their opponents. This suggests that the team is performing well, with a positive impact on both offense and defense.  
+
+**Net Rating=Offensive Rating−Defensive Rating**    
+We are going to explore the top 20 most impactful players that have played at least 30 games on average in an NBA season.
+
+```python
+impact_players = players[players['gp'] > 30].sort_values(by='net_rating', ascending=False).head(20)
+impact_players[['player_name','net_rating','pts','all_star']]
+```
+   |     player_name  | net_rating|    pts    |all_star|
+   |------------------|-----------|-----------|--------|
+   |     Bruce Bowen  | 28.292308 |  5.376923 |    No  |
+   |       Max Strus  | 25.850000 |  7.675000 |    No  |
+   | Sekou Doumbouya  | 16.700000 |  6.166667 |    No  |
+   |   Robert Parish  | 14.900000 |  3.700000 |    No  |
+   |   David Wingate  | 11.620000 |  2.640000 |    No  |
+   |  Dakari Johnson  | 10.900000 |  1.800000 |    No  |
+   | Slava Medvedenko | 10.700000 |  4.257143 |    No  |
+   |   Jeff Hornacek  | 10.675000 |  13.32500 |    Yes |
+   |   Bryon Russell  | 10.420000 |  8.080000 |    No  |
+   |   Kevin Johnson  | 10.333333 |  12.10000 |    No  |
+   |   Manu Ginobili  | 10.225000 |  13.15000 |    Yes |
+   |  Igor Rakocevic  | 10.200000 |  1.900000 |    No  |
+   |  David Robinson  | 10.185714 |  15.42857 |    Yes |
+   |     Tim Duncan   | 9.747368  |  18.88947 |    Yes |
+   |  John Stockton   | 9.385714  |  12.18571 |    No  |
+   |  Kawhi Leonard   | 9.281818  |  19.48181 |    Yes |
+   | Christian Koloko | 9.000000  |  3.100000 |    No  |
+   |   Terry Porter   | 8.316667  |  8.166667 |    No  |
+   |  Miles McBride   | 8.300000  |  2.850000 |    No  |
+   |    Joel Embiid   | 8.057143  |  26.54285 |    Yes |  
+
+- Bruce Bowen is the most impactful player in the NBA in the last 25 years.
+- Six players of this list were/are all star class.
+- Joel Embiid is 4th in NBA Best Scoring season list (2022) and the most dominant NBA player in the last 25 years.He is also top 20 in the most impactful player with 8.05 net rating.
   
+
+!['ImpactfulPlayers'](/plots/16plot.png)
+ 
