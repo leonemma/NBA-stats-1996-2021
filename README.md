@@ -275,7 +275,7 @@ We don't need the 'age' and 'season' features any more
 players.drop('season', axis = 1, inplace = True)
 players.drop('age', axis = 1, inplace = True)
 ```
-We are goint to create a new column that categorizes if a player was/is in all star level based on the following metrics:  
+We are going to create a new column that categorizes if a player was/is in all star level based on the following metrics:  
 - Top 10% Scoring Low
 - Top 10% Rebounding Low
 - Top 10% Passing Low
@@ -370,7 +370,7 @@ shooters = players[players['gp'] > 30].sort_values(by = 'ts_pct', ascending = Fa
  |       Jaxson Hayes | 0.662250 |  7.300000 |   211.455000  |
  |      Jarrett Allen | 0.660167 | 12.233333 |   209.550000  |
 
-Given the distribution of the feature 'player_height', we can conclude that most players are taller than the 75% of the population.Hence these players are considered as tall and this metric is very meaningful for the players that play in center position or power forward.    
+Given the distribution of the feature 'player_height', we can conclude that most players are taller than the 75% of the population. Hence these players are considered as tall and this metric is very meaningful for the players that play in center position or power forward.    
  !['True Shooting PCT'](/plots/17plot.png)   
 
 
@@ -411,7 +411,7 @@ impact_players[['player_name','net_rating','pts','all_star']]
 
 - Bruce Bowen is the most impactful player in the NBA in the last 25 years.
 - Six players of this list were/are all star class.
-- Joel Embiid is 4th in NBA Best Scoring season list (2022) and the most dominant NBA player in the last 25 years.He is also top 20 in the most impactful player with 8.05 net rating.
+- Joel Embiid is 4th in NBA Best Scoring season list (2022) and the most dominant NBA player in the last 25 years. He is also top 20 in the most impactful player with 8.05 net rating.
   
 
 !['ImpactfulPlayers'](/plots/16plot.png)
