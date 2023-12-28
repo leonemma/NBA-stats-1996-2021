@@ -9,8 +9,8 @@
 - [Introduction](#Introduction)
 - [Installation](#Installation)
 - [Usage](#Usage)
-  - [Feature Explanation](#FeatureExplanation)
-- [Data Cleaning](#DataCleaning)
+  - [Feature Explanation](#Feature-Explanation)
+- [Data Cleaning](#Data-Cleaning)
 - [Key Questions](#KeyQuestions)
   - [Exploring the Features](#Features-Distributions)
 - [Feature Engineering](#Feature-Engineering)
@@ -46,7 +46,7 @@ Once you have successfully installed NBA-Stats-1996-2021, you can use the follow
    ```bash
    jupyter notebook NBA players stats.ipynb
 
-## FeatureExplanation
+## Feature-Explanation
 This dataset contains 22 columns and 12844 observations.
 
 - Unnamed 0: - 
@@ -74,7 +74,7 @@ This dataset contains 22 columns and 12844 observations.
 
 
 
-## DataCleaning
+## Data-Cleaning
 This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we are going to analyze the NBA over the years, and secondly transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
 
 #### The dataset does not contain any null values.  
