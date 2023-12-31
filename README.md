@@ -285,6 +285,8 @@ We are going to create a new column that categorizes if a player was/is in all s
 - Top 10% Scoring Low
 - Top 10% Rebounding Low
 - Top 10% Passing Low
+  
+  ** We define an all-star player by not only consistently achieving a points per game performance higher than 90% of the population but also surpassing the 90th percentile in either rebounds or assists per game**
 ```python
 scoring = round(players['pts'].quantile(0.9),2)
 rebounding = round(players['reb'].quantile(0.9),2)
