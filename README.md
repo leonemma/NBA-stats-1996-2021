@@ -9,6 +9,7 @@
 ## Contents  
 - [Introduction](#Introduction)
 - [Installation](#Installation)
+- [Dependencies](#Dependencies)
 - [Feature Explanation](#Feature-Explanation)
 - [Data Cleaning](#Data-Cleaning)
 - [Key Questions](#KeyQuestions)
@@ -36,7 +37,15 @@ To install NBA-Stats-1996-2021, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/leonemma/NBA-stats-1996-2021.git
-cd NBA-Stats-1996-2021
+cd NBA-Stats-1996-2021  
+
+## Dependencies
+
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
 
 ## Feature-Explanation
 This dataset contains 22 columns and 12844 observations.
