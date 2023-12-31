@@ -19,7 +19,7 @@
 
 ## Introduction
 
-In this project, we will conduct Exploratory Data Analysis (EDA) on NBA statistics spanning the seasons from 1996 through 2021. Our focus will be on identifying and exploring the standout players in the NBA during this period.
+In this project, we will conduct Data Analysis on NBA statistics spanning the seasons from 1996 through 2021. Our focus will be on identifying and exploring the standout players in the NBA during this period.
 
 This project utilizes the following dataset:
 
@@ -67,17 +67,18 @@ This dataset contains 22 columns and 12844 observations.
 
 
 ## Data-Cleaning
-This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we are going to analyze the NBA over the years, and secondly transform the dataset to represent NBA player statistics in a way that each player exists in the dataset only once.
+This dataset contains some individual players multiple times due to the collection of their statistics every year. Initially, we are going to analyze the NBA over the years, and secondly transform the dataset (in a way that each player exists in the dataset only once) to explore career numbers of NBA players.
 
 #### The dataset does not contain any null values.  
 
 - At first we are going to remove the first column 'Unnamed: 0'.    
-- Secondly,we are going to turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0.Therefore when the value is 0 in these features it means that this player was undrafted.
+- Secondly,we are going to turn the 'draft_round' and 'draft_number' features into numeric.Hence,we replace the value Undrafted that represents the undrafted players with the number 0. Therefore when the value is 0 in these features it means that this player was undrafted.
 ```python
 df.drop('Unnamed: 0', axis = 1, inplace = True)
 
 df['draft_round'] = df['draft_round'].replace('Undrafted', 0)
 df['draft_number'] = df['draft_number'].replace('Undrafted', 0)
+
 df['draft_round'] = df['draft_round'].astype(int)
 df['draft_number'] = df['draft_number'].astype(int)
  ```
@@ -101,11 +102,11 @@ df['draft_number'] = df['draft_number'].astype(int)
 ### 7. Consistent All-Star Level Players
 - **Question:** How many NBA players performed at an All-Star level consistently?
 ### 8. Most Dominant Players
-- **Question:** Who /were/are the most dominant players in the last 25 years?
+- **Question:** Who were/are the most dominant players in the last 25 years?
 ### 9. Best Playmakers and Scorers
 - **Question:** Who were/are the best playmakers and scorers in the last 25 years? 
 ### 10. Highest Shooting Performance
-- **Question:** Which NBA players had/have the highest true shooting season?
+- **Question:** Which NBA players had/have the highest true shooting percentage in their career?
 ### 11. Most Impactful Players
 - **Question:** Which players had/have the most impactful contributions to their teams?
 
@@ -148,13 +149,17 @@ max        1.000000      1.000000      1.000000      1.500000      1.000000
 
 ![Correlation Matrix](/plots/2plot.png)  
 
-- There exists a robust positive relationship between the height and weight of players, confirming our initial expectations
-- "Evidently, player height exhibits a positive correlation with various rebounding metrics, including total rebounds ('reb'), offensive rebound percentage ('oreb_pct'), and defensive rebound percentage ('dreb_pct'). This implies that, on average, taller players tend to secure more rebounds
-- Interestingly, there is a negative correlation between a player's height and assist percentage. This suggests that assist percentage serves as a noteworthy metric for guards, who typically have shorter statures and are more involved in playmaking.
-- "The scoring variable ('pts') demonstrates positive correlations with both rebounding and passing metrics. Players who contribute significantly to scoring are likely to excel in rebounding and passing as well.
+- There exists a positive relationship between the height and weight of players, confirming our initial expectations
+- Evidently, player height exhibits a positive correlation with various rebounding metrics, including total rebounds ('reb'), offensive rebound percentage ('oreb_pct'), and defensive rebound percentage ('dreb_pct'). This implies that, on average, taller players tend to secure more rebounds
+- Interestingly, there is a negative correlation between a player's height and assist percentage. This suggests that assist percentage serves as a noteworthy metric for guards, who typically have shorter statures and are more involved in playmaking
+- The scoring variable ('pts') demonstrates positive correlations with both rebounding and passing metrics. Players who contribute significantly to scoring are likely to excel in rebounding and passing as well
   
-## Feature-Engineering
-- The 'country' feature encompasses numerous values. To enhance simplicity, we will transform this variable into a binary distinction, categorizing values as either 'USA' or 'Other.' This reduction aims to streamline the analysis by consolidating the diverse country values into a more manageable binary representation.
+## Feature-Engineering  
+```python
+print(df['country'].nunique())
+df['country'].value_counts()
+ ```
+- The 'country' feature encompasses numerous values (82 unique values). To enhance simplicity, we will transform this variable into a binary distinction, categorizing values as either 'USA' or 'Other'. This reduction aims to streamline the analysis by consolidating the diverse country values into a more manageable binary representation.
  ```python
 df['country'] = np.where(df['country'] != 'USA', 'Other','USA')
  ```
@@ -178,17 +183,18 @@ Observing the data, it becomes apparent that three-quarters of the population pa
 
 ### 1. Total Number of NBA players
 
-![Count of players by years](/plots/4plot.png)  
-
 The depicted plot highlights a pronounced increase in the number of NBA players, commencing from the year 2010.  
+
+![Count of players by years](/plots/4plot.png)  
 
 Following this, we will delve into key statistics over the course of time.  
 ```python 
 df.groupby('season').mean().T
 ```
-### 2. Trends in Average Points by an NBA player over the years
-![Average Points by Season](/plots/5plot.png)
+### 2. Trends in Average Points by an NBA player over the years  
+
 We observe a gradual and consistent rise in the average points scored by NBA players over the years.  
+![Average Points by Season](/plots/5plot.png)
 Let's apply the same analysis to rebounds and assists.
 
 ### 3. Average Rebounds and Assists by an NBA player over the years
@@ -222,11 +228,11 @@ pass_skills[['player_name','ast_pct','ast','season']].head(13)
 |     Andre Miller |   0.484 | 10.9  |  2001  |
 |       Steve Nash |   0.483 | 11.0  |  2009  |
 |      Rajon Rondo |   0.480 |  9.8  |  2013  |
-|Russell Westbrook |   0.477 | 11.7  |  2020  |   
+|Russell Westbrook |   0.477 | 11.7  |  2020  |     
 
+- This plot showcases the extraordinary and historic passing season that Russell Westbrook had in 2016, highlighting the profound impact he had on his teammates.  
 ![top_passers](/plots/9plot.png)
 
-The above plot showcases the extraordinary and historic passing season that Russell Westbrook had in 2016, highlighting the profound impact he had on his teammates.  
 
 ### 6. Best Scoring Seasons
 ```python
@@ -270,12 +276,12 @@ players = df.groupby('player_name').mean()
 Now we are able to evaluate a player's career and identify the players who had/have a measurable duration over time.
 
 ### Feature-Engineering
-We don't need the 'age' and 'season' features any more
+We don't care the average 'age' and average 'season' features, so we will drop them.
 ```python
 players.drop('season', axis = 1, inplace = True)
 players.drop('age', axis = 1, inplace = True)
 ```
-We are going to create a new column that categorizes if a player was/is in all star level based on the following metrics:  
+We are going to create a new column that categorizes if a player was/is in all star level during his career based on the following metrics:  
 - Top 10% Scoring Low
 - Top 10% Rebounding Low
 - Top 10% Passing Low
@@ -292,10 +298,10 @@ Let's see the distribution of the new feature we created :
 
 !['All Star Distribution'](/plots/12plot.png)  
 
-We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level **consistently**.
+- We notice that only the 7.8% of the NBA players in the last 25 years was/is in all star level **consistently**.
 
 ## 8. Most Dominant Players
-We define a dominant player as the player who had/has at least 20 points per game and 9 rebounds throughout his career.  
+We define a dominant player as the player who averaged at least 20 points per game and 9 rebounds throughout his career.  
 
 ```python
 dom = players[(players['pts'] > 20) & (players['reb'] > 9)].sort_values(by = 'pts', ascending = False)
@@ -312,7 +318,7 @@ dom[['player_name','pts','reb','ast','SeasonPlayed','draft_number']]
 |      Shaquille O'Neal | 21.88 | 10.01 | 2.42 |     15.0    |    1.0     |
 |          Nikola Jokic | 20.40 | 10.55 | 6.71 |     8.0     |    41.0    |
 
-There are only 7 NBA players in the last 25 years with these stats.  
+- There are only 7 NBA players in the last 25 years with these stats.  
 !['Dominant players'](/plots/13plot.png)  
 
 
@@ -370,7 +376,7 @@ shooters = players[players['gp'] > 30].sort_values(by = 'ts_pct', ascending = Fa
  |       Jaxson Hayes | 0.662250 |  7.300000 |   211.455000  |
  |      Jarrett Allen | 0.660167 | 12.233333 |   209.550000  |
 
-Given the distribution of the feature 'player_height', we can conclude that most players are taller than the 75% of the population. Hence these players are considered as tall and this metric is very meaningful for the players that play in center position or power forward.    
+- Given the distribution of the feature 'player_height', we can conclude that most players are taller than the 75% of the population. Hence these players are considered as tall and this metric is very meaningful for the players that play in center position or power forward.    
  !['True Shooting PCT'](/plots/17plot.png)   
 
 
@@ -411,7 +417,7 @@ impact_players[['player_name','net_rating','pts','all_star']]
 
 - Bruce Bowen is the most impactful player in the NBA in the last 25 years.
 - Six players of this list were/are all star class.
-- Joel Embiid is 4th in NBA Best Scoring season list (2022) and the most dominant NBA player in the last 25 years. He is also top 20 in the most impactful player with 8.05 net rating.
+- Joel Embiid is 4th in NBA Best Scoring season list (2022) and the most dominant NBA player in the last 25 years. He is also top 20 in the most impactful players list averaging 8.05 net rating.
   
 
 !['ImpactfulPlayers'](/plots/16plot.png)
