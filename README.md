@@ -4,7 +4,7 @@
 ## Authors
 
 - [@leonemma](https://github.com/leonemma)
-- The source code for this project is available on [GitHub](https://github.com/leonemma/NBA-stats-1996-2021/blob/main/NBA%20players%20stats.ipynb).
+- The source code for this project is available [here](https://github.com/leonemma/NBA-stats-1996-2021/blob/main/NBA%20players%20stats.ipynb).
 
 ## Contents  
 - [Introduction](#Introduction)
