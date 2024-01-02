@@ -119,7 +119,7 @@ df['draft_number'] = df['draft_number'].astype(int)
 ### 11. Most Impactful Players
 - **Question:** Which players had/have the most impactful contributions to their teams?
 
-## Eeatures-Distributions
+## Features-Distributions
 
 ![Histograms of Numeric Variables](/plots/1plot.png)
 ```python
