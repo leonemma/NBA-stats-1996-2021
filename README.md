@@ -368,7 +368,7 @@ There are 13 players in this list.
 
 Let's analyze another statistic that is called True Shooting Percentage ('ts_pct').True shooting percentage is a measure of shooting efficiency that takes into account field goals and free throws.
 
- ### $$ F1 score = \frac{2*Precision*Recall}{Precision+Recall} $$  
+$$ TSP = \frac{PTS}{2 \times (FGA + 0.44 \times FTA)} $$
 
  We will focus only on the top 10 NBA players with the highest true shooting percentages, considering only players who have played more than 30 games.  
  ```python
